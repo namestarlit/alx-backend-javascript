@@ -34,7 +34,8 @@ nvm -v
 Now, with nvm you can install the desired node version without messing  
 with the existing one(s).  
 Execute the the following series of commands to install the desired node version.  
-Note: This will install and set your terminal session to use the newly installed  
+
+**Note**: This will install and set your terminal session to use the newly installed  
 node version for the current terminal session.
 ```bash
 nvm install v12.11
@@ -130,7 +131,7 @@ module.exports = {
 Finally, run `npm install` from the terminal of your project folder  
 to install all necessary project dependencies.  
 
-Note: Most of these packages if not all of them are deprecated - they are used here  
+**Note**: Most of these packages if not all of them are deprecated - they are used here  
 For the sole purpose of learning and the project requirements. If you are using this guide  
 to do this project then you can safely ignore the warnings, but if you are looking for a  
 guide to do your project, I recommend you visit the sites (links in the references section)  
