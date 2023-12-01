@@ -128,7 +128,12 @@ module.exports = {
 ```
 
 Finally, run `npm install` from the terminal of your project folder  
-to install all necessary project dependencies.
+to install all necessary project dependencies.  
+Note: Most of these packages if not all of them are deprecated - they are used here  
+For the sole purpose of learning and the project requirements. If you are using this guide  
+to do this project then you can safely ignore the warnings, but if you are looking for a  
+guide to do your project, I recommend you visit the sites (links in the references section)  
+to check how to use the latest versions of the packages.
 
 ## References
 <a href="https://github.com/nvm-sh/nvm">Node Version Manager Repository (nvm)</a><br>
