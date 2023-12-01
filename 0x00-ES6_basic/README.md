@@ -129,6 +129,7 @@ module.exports = {
 
 Finally, run `npm install` from the terminal of your project folder  
 to install all necessary project dependencies.  
+
 Note: Most of these packages if not all of them are deprecated - they are used here  
 For the sole purpose of learning and the project requirements. If you are using this guide  
 to do this project then you can safely ignore the warnings, but if you are looking for a  
