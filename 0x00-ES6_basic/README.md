@@ -21,8 +21,10 @@ and use multiple versions of node depending on the requirement for our project.
 
 
 1. Install nvm through the APT package manager in Ubuntu  
+
 Open your terminal and execute the following series of commands to install  
-and source the newly installed nvm (this is easier than restarting your terminal emurator)
+and source the newly installed nvm (this is easier than restarting your terminal emurator)  
+
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 source ~/.bashrc
@@ -31,12 +33,14 @@ nvm -v
 
 
 2. Install the required node version through nvm  
+
 Now, with nvm you can install the desired node version without messing  
 with the existing one(s).  
 Execute the the following series of commands to install the desired node version.  
 
 **Note**: This will install and set your terminal session to use the newly installed  
-node version for the current terminal session.
+node version for the current terminal session.  
+
 ```bash
 nvm install v12.11
 nvm use v12.11
@@ -46,7 +50,8 @@ npm -v
 
 ### Install Jest, Babel, and ESLint
 In your project directory, install Jest, Babel and ESList by using the supplied  
-package.json and run `npm install`.
+package.json and run `npm install`.  
+
 #### Configuration files
 Add following files below to your project directory:  
 
