@@ -20,7 +20,7 @@ To solve this, we need to use Node Version Manager (nvm) to be able to manage
 and use multiple versions of node depending on the requirement for our project.  
 
 
-1. Install nvm through the APT package manager in Ubuntu  
+1. Install nvm from the nvm repository
 
 Open your terminal and execute the following series of commands to install  
 and source the newly installed nvm (this is easier than restarting your terminal emurator)  
