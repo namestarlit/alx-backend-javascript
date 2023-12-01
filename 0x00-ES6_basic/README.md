@@ -131,8 +131,8 @@ Finally, run `npm install` from the terminal of your project folder
 to install all necessary project dependencies.
 
 ## References
-<a link="https://github.com/nvm-sh/nvm">Node Version Manager Repository (nvm)</a><br>
-<a link="https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager">Node Package Manager (npm) </a><br>
-<a link="https://eslint.org/docs/latest/use/getting-started">Getting Started with ESLint</a><br>
-<a link="https://jestjs.io/docs/getting-started">Getting Started with Jest</a><br>
-<a link="https://nodejs.org/en/learn">Learn Node.js</a><br>
+<a href="https://github.com/nvm-sh/nvm">Node Version Manager Repository (nvm)</a><br>
+<a href="https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager">Node Package Manager (npm) </a><br>
+<a href="https://eslint.org/docs/latest/use/getting-started">Getting Started with ESLint</a><br>
+<a href="https://jestjs.io/docs/getting-started">Getting Started with Jest</a><br>
+<a href="https://nodejs.org/en/learn">Learn Node.js</a><br>
