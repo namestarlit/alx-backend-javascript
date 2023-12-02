@@ -25,7 +25,6 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
-    'no-unused-vars': 'off'
   },
   overrides:[
     {
