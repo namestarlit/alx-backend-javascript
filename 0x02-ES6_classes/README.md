@@ -1,4 +1,4 @@
-## 0x00. ES6 Basics
+## 0x02. ES6 classes
 This project is about ES6 Classes  
 
 ## Objectives
