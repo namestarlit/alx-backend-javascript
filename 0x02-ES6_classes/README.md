@@ -1,5 +1,5 @@
 ## 0x00. ES6 Basics
-This project is about ES6 Basics  
+This project is about ES6 Classes  
 
 ## Objectives
 - How to define a Class
