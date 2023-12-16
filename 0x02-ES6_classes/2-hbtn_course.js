@@ -12,7 +12,7 @@ export default class HolbertonCourse {
 
     if (typeof length !== 'number') throw new TypeError('Length must be a number');
 
-    if (!(students instanceof Array)) throw new TypeError('Students must be an array');
+    if (!Array.isArray(students)) throw new TypeError('Students must be an array');
 
     /* eslint-disable no-underscore-dangle */
     this._name = name;
