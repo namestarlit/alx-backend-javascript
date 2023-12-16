@@ -23,7 +23,6 @@ export default class Building {
   /**
    * Abstract method that must be implemented by subclasses.
    * Throws an error if not overridden.
-   * @abstract
    * @throws {Error} - If not overridden by subclass.
    */
   evacuationWarningMessage() {
