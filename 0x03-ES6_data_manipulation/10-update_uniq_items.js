@@ -14,4 +14,6 @@ export default function updateUniqueItems(inputMap) {
       inputMap.set(item, 100);
     }
   }
+
+  return inputMap;
 }
