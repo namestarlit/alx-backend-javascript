@@ -19,22 +19,25 @@ function countStudents(path) {
       const subjects = {};
       for (const i in students) {
         if (i !== 0) {
-          if (!subjects[students[i][3]]) subjects[students[i][3]] = [];
+          if (!subjects[students[i][3]]) {
+            subjects[students[i][3]] = [];
+          }
           subjects[students[i][3]].push(students[i][0]);
         }
       }
-      delete subjects.subject;
 
+      delete subjects.subject;
       for (const key of Object.keys(subjects)) {
-        message = `Number of students in ${key}: ${
-          subjects[key].length
-        }. List: ${subjects[key].join(', ')}`;
+        message = `Number of students in ${key}: ${subjects[key].length}. List: ${subjects[key].join(', ')}`;
         console.log(message);
-        messages.push(message);
+        message.push(message);
       }
+
       res(messages);
     });
   };
+
   return new Promise(promise);
 }
+
 module.exports = countStudents;
