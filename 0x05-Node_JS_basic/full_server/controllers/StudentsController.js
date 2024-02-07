@@ -1,57 +1,41 @@
-// full_server/controllers/StudentsController.js
-import { readDatabase } from '../utils';
+const readDatabase = require('../utils');
+
+const arrToStr = (arr) => arr.reduce((a, b, i) => a + b + (i === arr.length - 1 ? '' : ', '), '');
 
 class StudentsController {
-  static async getAllStudents (req, res) {
+  static async getAllStudents(request, response) {
     try {
-      const data = await readDatabase('database.csv');
-      res.status(200).send(buildResponse(data));
-    } catch (error) {
-      res.status(500).send('Cannot load the database');
+      const { cs, swe } = await readDatabase(process.argv[2]);
+      let output = 'This is the list of our students\n';
+      output += `Number of students in CS: ${cs.length}. List: ${arrToStr(
+        cs,
+      )}\n`;
+      output += `Number of students in SWE: ${swe.length}. List: ${arrToStr(
+        swe,
+      )}\n`;
+      response.status(200).send(output);
+    } catch (err) {
+      console.log(err);
+      response.status(500).send('Cannot load the database');
     }
   }
 
-  static async getAllStudentsByMajor (req, res) {
-    const { major } = req.params;
+  static async getAllStudentsByMajor(request, response) {
+    const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
-      return res.status(500).send('Major parameter must be CS or SWE');
-    }
-
-    try {
-      const data = await readDatabase('./full_server/database.csv');
-      const studentsInMajor = data[major] || [];
-      res.status(200).send(`List: ${studentsInMajor.join(', ')}`);
-    } catch (error) {
-      res.status(500).send('Cannot load the database');
+      response.status(500).send('Major parameter must be CS or SWE');
+    } else {
+      try {
+        const { cs, swe } = await readDatabase(process.argv[2]);
+        response
+          .status(200)
+          .send(`List: ${arrToStr(major === 'CS' ? cs : swe)}`);
+      } catch (err) {
+        console.log(err);
+        response.status(500).send('Cannot load the database');
+      }
     }
   }
 }
 
-function buildResponse (data) {
-  let response = 'This is the list of our students\n';
-
-  // Extract all unique fields
-  const fields = [...new Set(Object.keys(data))];
-
-  // Sort fields based on "CS" and "SWE"
-  const sortedFields = fields.sort((a, b) => {
-    if (a === 'CS') return -1;
-    if (b === 'CS') return 1;
-    if (a === 'SWE') return -1;
-    if (b === 'SWE') return 1;
-    return a.localeCompare(b, undefined, { sensitivity: 'base' });
-  });
-
-  // Iterate through each field
-  sortedFields.forEach((field) => {
-    if (field === 'CS' || field === 'SWE') {
-      response += `Number of students in ${field}: ${
-          data[field].length
-        }. List: ${data[field].join(', ')}\n`;
-    }
-  });
-
-  return response;
-}
-
-export default StudentsController;
+module.exports = StudentsController;

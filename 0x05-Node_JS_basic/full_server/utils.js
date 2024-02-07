@@ -1,33 +1,21 @@
-// full_server/utils.js
-import fs from 'fs/promises';
+const fs = require('fs');
 
-async function readDatabase(filePath) {
-  try {
-    const data = await fs.readFile(filePath, 'utf8');
-    // Parse and process the database file data
-    // Return the processed data as needed
-    return processData(data);
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
-}
+const aggregate = (data) => data.slice(1).reduce(
+  (a, b) => {
+    const [first, , , field] = b.split(',');
+    if (field === 'CS') {
+      a.cs.push(first);
+    } else if (field === 'SWE') a.swe.push(first);
+    return a;
+  },
+  { cs: [], swe: [] },
+);
 
-function processData(data) {
-  const lines = data.split('\n');
-  const result = {};
+const readDatabase = (path) => new Promise((resolve, reject) => {
+  fs.readFile(path, 'utf-8', (err, res) => {
+    if (err) return reject(new Error('Cannot load the database'));
+    return resolve(aggregate(res.split('\n')));
+  });
+});
 
-  // Skip the header line
-  for (let i = 1; i < lines.length; i++) {
-    const [firstName, lastName, age, field] = lines[i].split(',');
-
-    if (!result[field]) {
-      result[field] = [];
-    }
-
-    result[field].push(firstName.trim());
-  }
-
-  return result;
-}
-
-export { readDatabase };
+module.exports = readDatabase;
